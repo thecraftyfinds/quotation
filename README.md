@@ -1,2 +1,2 @@
 # quotation
-[The Crafty Finds - Quotation App](https://thecraftyfinds.github.com/quotation).
+[The Crafty Finds - Quotation App](https://thecraftyfinds.github.io/quotation).
