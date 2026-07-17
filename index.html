@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="The Crafty Finds">
+    <meta property="og:title" content="The Crafty Finds">
+    <meta property="og:url" content="www.asd.com" />
+    <meta property="og:description" content="The Crafty Finds"/>
+    <meta property="og:site_name" content="The Crafty Finds"/>
+    <meta property="og:type" content="website" /> 
+    <meta property="og:image" content="assets/images/logo.png">
+    <title>The Crafty Finds</title>
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        :root {
+            --item-heading: "ITEMS";
+            --heading-1: "Principal Sponsor";
+            --heading-2: "Groomsmen";
+            --heading-3: "Bridesmaid";
+            --quantity: "Quantity";
+        }
+        .table-column-principal .items::before {
+            content: var(--heading-1);
+        }
+        .table-column-groomsmen .items::before {
+            content: var(--heading-2);
+        }
+        .table-column-bridesmaid .items::before {
+            content: var(--heading-3);
+        }
+        @media screen and (max-width: 991px) {
+            .table-column-data .items::after {
+                content: var(--item-heading);
+            }
+        }
+        @media (min-width: 992px) {
+            .table-column-placeholder .item:nth-child(1)::before {
+                content: var(--item-heading);
+            }
+            .table-column-data .quantity::before {
+                content: var(--quantity);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="section-logo">
+        <a href="#" class="logo-link">
+            <img src="assets/images/logo.png" class="logo" alt="The Crafty Finds" />
+        </a>
+    </header>
+    <main>
+        <section class="client-info">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="form-group">
+                        <span class="placeholder">Client's Name: </span>
+                        <input type="text" id="client_name" class="input input-text" />
+                    </div>
+                    <div class="form-group">
+                        <span class="placeholder">Event Date: </span>
+                        <input type="text" id="event_date" class="input input-text" />
+                    </div>
+                    <div class="form-group">
+                        <span class="placeholder">Venue: </span>
+                        <input type="text" id="venue" class="input input-text" />
+                    </div>
+                    <div class="form-group">
+                        <span class="placeholder">Contact Number: </span>
+                        <input type="text" id="contact_number" class="input input-text" />
+                    </div>
+                    <div class="form-group">
+                        <span class="placeholder">Facebook Account: </span>
+                        <input type="text" id="socmed_account" class="input input-text" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="table-info">
+            <div class="container">
+                <div class="custom-table">
+                    <!-- hide on mobile -->
+                    <div class="table-column table-column-placeholder">
+                        <div class="items">
+                            <div class="item">
+                                <span>Keychain</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Wine Glass</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Pouch</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Comb</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Mirror</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Bottle Opener</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Shot Glass</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Packaging</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Packaging 2</span>
+                            </div>
+                
+                            <div class="item">
+                                <span>Packaging 2</span>
+                            </div>
+                        </div>
+                
+                        <div class="summary">
+                            <label>Total</label>
+                            <label>Less 10%</label>
+                        </div>
+                    </div>
+
+                    <!-- Principal Sponsor -->
+                    <div class="table-column table-column-data table-column-principal" data-group="principal">
+                        <div class="quantity">
+                            <label>Quantity</label>
+                            <input type="number" class="group-qty" data-group="principal" min="0">
+                        </div>
+                
+                        <div class="items">
+                            <div class="item" data-price="100">
+                                <span>Keychain</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="200">
+                                <span>Wine Glass</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="300">
+                                <span>Pouch</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="400">
+                                <span>Comb</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="500">
+                                <span>Mirror</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="600">
+                                <span>Bottle Opener</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="700">
+                                <span>Shot Glass</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging 2</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging 2</span>
+                                <input type="checkbox" class="item-checkbox" data-group="principal">
+                                <div class="check-box"></div>
+                            </div>
+                        </div>
+                
+                        <div class="summary">
+                            <label>Total</label>
+                            <div class="readonly">
+                                &#8369; <input id="principal-total" readonly>
+                            </div>
+                
+                            <label>Less 10%</label>
+                            <div class="readonly">
+                                &#8369; <input id="principal-discount" readonly>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Groomsmen -->
+                    <div class="table-column table-column-data table-column-groomsmen" data-group="groomsmen">
+                        <div class="quantity">
+                            <label>Quantity</label>
+                            <input type="number" class="group-qty" data-group="groomsmen" min="0">
+                        </div>
+                
+                        <div class="items">
+                            <div class="item" data-price="100">
+                                <span>Keychain</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="200">
+                                <span>Wine Glass</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="300">
+                                <span>Pouch</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="400">
+                                <span>Comb</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="500">
+                                <span>Mirror</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="600">
+                                <span>Bottle Opener</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="700">
+                                <span>Shot Glass</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging 2</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging 2</span>
+                                <input type="checkbox" class="item-checkbox" data-group="groomsmen">
+                                <div class="check-box"></div>
+                            </div>
+                        </div>
+                
+                        <div class="summary">
+                            <label>Total</label>
+                            <div class="readonly">
+                                &#8369; <input id="groomsmen-total" readonly>
+                            </div>
+                
+                            <label>Less 10%</label>
+                            <div class="readonly">
+                                &#8369; <input id="groomsmen-discount" readonly>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Bridesmaid -->
+                    <div class="table-column table-column-data table-column-bridesmaid" data-group="bridesmaid">
+                        <div class="quantity">
+                            <label>Quantity</label>
+                            <input type="number" class="group-qty" data-group="bridesmaid" min="0">
+                        </div>
+                
+                        <div class="items">
+                            <div class="item" data-price="100">
+                                <span>Keychain</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="200">
+                                <span>Wine Glass</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="300">
+                                <span>Pouch</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="400">
+                                <span>Comb</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="500">
+                                <span>Mirror</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="600">
+                                <span>Bottle Opener</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="700">
+                                <span>Shot Glass</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging 2</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                
+                            <div class="item" data-price="800">
+                                <span>Packaging 2</span>
+                                <input type="checkbox" class="item-checkbox" data-group="bridesmaid">
+                                <div class="check-box"></div>
+                            </div>
+                        </div>
+                
+                        <div class="summary">
+                            <label>Total</label>
+                            <div class="readonly">
+                                &#8369; <input id="bridesmaid-total" readonly>
+                            </div>
+                
+                            <label>Less 10%</label>
+                            <div class="readonly">
+                                &#8369; <input id="bridesmaid-discount" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="totals">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="wrapper-half">
+                        <div class="display-group">
+                            <div class="text">
+                                <p>Grand Total</p>
+                            </div>
+                            <div class="autocompute">
+                                <p>&#8369;<span class="input-text readonly" id="total_grand"></span></p>
+                            </div>
+                        </div>
+                        <div class="display-group">
+                            <div class="text">
+                                <p>Total Savings</p>
+                            </div>
+                            <div class="autocompute">
+                                <p>&#8369;<span class="input-text readonly" id="total_savings"></span></p>
+                            </div>
+                        </div>
+                        <div class="display-group">
+                            <div class="text">
+                                <p>Deposit / Downpayment</p>
+                            </div>
+                            <div class="autocompute">
+                                <p>&#8369;<input type="number" class="input-text" id="total_deposit" value="0.00"></input></p>
+                            </div>
+                        </div>
+                        <div class="display-group">
+                            <div class="text">
+                                <p>Remaining Balance</p>
+                            </div>
+                            <div class="autocompute">
+                                <p>&#8369;<span class="input-text readonly" id="total_balance"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="actions">
+            <div class="container">
+                <div class="wrapper">
+                    <a href="#" class="button-action clear">Clear</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="section-footer">
+        <div class="container">
+            <ul class="list-unstyled">
+                <li>The Crafty Finds</li>
+                <!-- <li><a href="https://www.facebook.com/thecraftyfinds">fb.com/thecraftyfinds</a></li> -->
+                <li><a href="https://www.facebook.com/thecraftyfinds">@thecraftyfinds</a></li>
+                <li><a href="mailto:thecraftyfinds@gmail.com">thecraftyfinds@gmail.com</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
