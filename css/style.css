@@ -11,12 +11,26 @@
     --light-gray-color: #ddd;
     --brown-color: #8d6d54;
 }
+::-webkit-scrollbar {
+    background-color: red;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--brown-color);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--secondary-color);
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
 html,body {
     margin: 0;
     padding: 0;
 }
 body {
     position: relative;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--primary-color);
 }
 p {
@@ -152,6 +166,7 @@ p, a, span, li, th, td, input {
     margin-bottom: 20px;
 }
 .client-info .form-group .input {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: transparent;
     border-bottom: 2px solid var(--black-color);
 }
@@ -188,15 +203,12 @@ p, a, span, li, th, td, input {
 .table-info table {
     border-spacing: 0;
 }
-.table-info th, .table-info td {
-    text-align: center;
-}
 .table-info input {
     width: 100%;
     max-width: 100%;
     padding: 0;
 }
-.table-info input[type=number] {
+.table-info input[type="number"]:not(.input-additional-price) {
     width: auto;
     min-width: 50px;
     max-width: 50px;
@@ -220,6 +232,48 @@ p, a, span, li, th, td, input {
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+.table-info input.input-additional-item,
+.table-info input.input-additional-price {
+    field-sizing: content;
+    text-align: center;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.table-info input.input-additional-item:focus,
+.table-info input.input-additional-item:focus-visible,
+.table-info input.input-additional-item:focus-within,
+.table-info input.input-additional-price:focus,
+.table-info input.input-additional-price:focus-visible,
+.table-info input.input-additional-price:focus-within  {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.table-info input.input-additional-item::-webkit-input-placeholder,
+.table-info input.input-additional-price::-webkit-input-placeholder {
+    font-size: 16px;
+    color: var(--text-color);
+}
+.table-info input.input-additional-item::-moz-placeholder,
+.table-info input.input-additional-price::-moz-placeholder {
+    font-size: 16px;
+    color: var(--text-color);
+}
+.table-info input.input-additional-item:-ms-input-placeholder,
+.table-info input.input-additional-price:-ms-input-placeholder {
+    font-size: 16px;
+    color: var(--text-color);
+}
+.table-info input.input-additional-item:-moz-placeholder,
+.table-info input.input-additional-price:-moz-placeholder {
+    font-size: 16px;
+    color: var(--text-color);
 }
 .table-info .table-column-data .item {
     position: relative;
@@ -256,6 +310,7 @@ p, a, span, li, th, td, input {
     justify-content: center;
     height: 40px;
     padding: 0 10px;
+    text-align: center;
 }
 .table-info .table-column .item:nth-child(odd) {
     background-color: transparent;
@@ -319,8 +374,33 @@ p, a, span, li, th, td, input {
 .table-info .table-column-data .summary .readonly input {
     width: auto;
     field-sizing: content;
+    margin-top: 3px;
     background: transparent;
     border: none;
+}
+.table-info .table-column .item-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    max-width: 100%;
+}
+.table-info .table-column .item-price {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 80px;
+}
+.table-info .table-column .item-price p {
+    margin-top: -2px;
+}
+.table-column .item:not(:nth-last-child(-n+3)) > span {
+    cursor: pointer;
 }
 .table-column .summary {
     border-top: 3px solid var(--black-color);
@@ -485,6 +565,83 @@ p, a, span, li, th, td, input {
     text-decoration: none;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: .2s ease-in;
+    transition: .2s ease-in;
+}
+.modal-show {
+    opacity: 1;
+    pointer-events: all;
+}
+.modal .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clear-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.modal .close-modal::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 18px;
+    width: 4px;
+    height: 30px;
+    background-color: var(--white-color);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.modal .close-modal::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 18px;
+    width: 4px;
+    height: 30px;
+    background-color: var(--white-color);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.modal .modal-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.modal .modal-body .image-modal {
+    display: none;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: auto;
+    max-width: calc(100% - 100px);
+    height: auto;
+    max-height: calc(100% - 100px);
+}
+.modal .modal-body .image-modal-show {
+    display: block;
+}
+
 @media screen and (max-width: 575px) {
     .logo-link .logo {
         max-width: 80px;
@@ -521,6 +678,28 @@ p, a, span, li, th, td, input {
 @media screen and (max-width: 767px) {
     .container {
         max-width: calc(100% - 30px);
+    }
+    .modal .close-modal {
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+    }
+    .modal .close-modal::before {
+        top: 2px;
+        right: 14px;
+        width: 3px;
+        height: 24px;
+    }
+    .modal .close-modal::after {
+        top: 2px;
+        right: 14px;
+        width: 3px;
+        height: 24px;
+    }
+    .modal .modal-body .image-modal {
+        max-width: calc(100% - 50px);
+        max-height: calc(100% - 50px);
     }
 }
 
@@ -737,6 +916,26 @@ p, a, span, li, th, td, input {
         left: 50%;
         width: 50%;
     }
+    .table-info .table-column .item-additional {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    .table-info .table-column .item-wrapper {
+        width: 100%;
+    }
+    .table-info .table-column .item-label {
+        width: 100%;
+        max-width: calc(50% - 20px);
+        padding: 0 10px;
+    }
+    .table-info .table-column .item-price {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .totals {
         padding-top: 0;
@@ -767,28 +966,6 @@ p, a, span, li, th, td, input {
 }
 
 @media (min-width: 992px) {
-    .table-info tr th:nth-child(1) {
-        width: 15%;
-    }
-    .table-info tr th:nth-child(2) {
-        width: 20%;
-    }
-    .table-info tr th:nth-child(3) {
-        width: 10%;
-    }
-    .table-info tr th:nth-child(4) {
-        width: 20%;
-    }
-    .table-info tr th:nth-child(5) {
-        width: 10%;
-    }
-    .table-info tr th:nth-child(6) {
-        width: 20%;
-    }
-    .table-info tr th:nth-child(7) {
-        width: 10%;
-    }
-
     .table-info .table-column .item:nth-child(even)::after {
         content: "";
         position: absolute;
@@ -806,7 +983,7 @@ p, a, span, li, th, td, input {
     .table-info .summary.desktop-start-even .readonly:nth-child(2) {
         background-color: var(--secondary-color);
     }
-    .table-info input[type=number] {
+    .table-info input[type="number"]:not(.input-additional-price) {
         /* height: -webkit-fill-available;
         height: -moz-available;
         height: stretch;
@@ -933,6 +1110,9 @@ p, a, span, li, th, td, input {
     .table-column-data .summary {
         width: 100%;
         order: 3;
+    }
+    .table-info .table-column .item-label {
+        display: none;
     }
 }
 
