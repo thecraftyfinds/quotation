@@ -160,10 +160,20 @@ $(function () {
             // Show matching image
             $('.modal-body .image-modal').eq(itemImage).addClass('image-modal-show');
         });
-        $('.modal .close-modal, .modal .modal-background').on('click', function() {
+        // $('.modal .close-modal, .modal .modal-background').on('click', function() {
+        //     $('.modal').removeClass('modal-show');
+        //     $('.modal-body .image-modal').removeClass('image-modal-show');
+        // });
+        $('.modal .modal-body').on('click', function() {
+            closeModal();
+        });
+        $('.modal .image-modal').on('click', function(e) {
+            e.stopPropagation();
+        });
+        function closeModal() {
             $('.modal').removeClass('modal-show');
             $('.modal-body .image-modal').removeClass('image-modal-show');
-        });
+        }
     }
     modalImageOpen();
 });
